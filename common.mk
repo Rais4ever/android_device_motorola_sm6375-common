@@ -103,6 +103,9 @@ PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml
 
+#ION
+$(call soong_config_set_bool,libion,legacy_impl,true)
+
 # Board API level
 BOARD_SHIPPING_API_LEVEL := 30
 
@@ -287,7 +290,9 @@ PRODUCT_PACKAGES += \
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
-    hardware/motorola
+    hardware/motorola \
+    hardware/google/pixel/pixelstats \
+    hardware/google/pixel/power-libperfmgr \
 
 # Telephony
 PRODUCT_PACKAGES += \
